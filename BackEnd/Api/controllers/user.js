@@ -2,8 +2,8 @@ const mongoose=require('mongoose');
 const bcrpt=require('bcrypt');
 const jwt=require('jsonwebtoken');
 
+const User = require("../Models/user");
 
-const User=require('../Models/user');
 
 
 //*******To Signup into Data*************//
@@ -28,7 +28,9 @@ exports.user_signup=(req,res,next)=>{
                             const user=new User({
                                 _id:new mongoose.Types.ObjectId(),
                                 email:req.body.email,
-                                password:hash
+                                password:hash,
+                                phone:req.body.phone,
+                                role:"superadmin"
                             });
                             user.save()
                             .then(result=>{
@@ -71,7 +73,8 @@ exports.User_signin=(req,res,next)=>{
     const token =  jwt.sign(
     {
         email:user[0],
-        userId:user[0]._id
+        userId:user[0]._id,
+        hospitalid:user[0].hid
     },
     "secret",
     {

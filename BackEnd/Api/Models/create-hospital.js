@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+const User=require('../Models/user');
 
 const hospitalSchema = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+    
     title:{
         type:String,
         require:true,
@@ -20,16 +21,7 @@ const hospitalSchema = mongoose.Schema({
     type:String,
     require:true
     },
-    phone:{
-        type: String,
-        validate: {
-            validator: function(v) {
-              return /\d{4}-\d{7}/.test(v);
-            },
-            message: '{VALUE} is not a valid phone number!'
-          },
-          require:true
-    },
+   
     patient_limit:{
         type:Number,
         require:true

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const hospital = require("./create-hospital");
-const userSchema = mongoose.Schema({
+
+const doctorSchema = mongoose.Schema({
     
     hid:{
         type: mongoose.Schema.Types.ObjectId,
@@ -20,6 +20,14 @@ const userSchema = mongoose.Schema({
         type:String,
         require:true
     },
+    department:{
+        type:String,
+        require:true
+    },
+    address:{
+        type:String,
+        require:true
+    },
     phone:{
         type: String,
         validate: {
@@ -34,4 +42,4 @@ const userSchema = mongoose.Schema({
         require:true
     }
 });
-module.exports=mongoose.model('User',userSchema);
+module.exports=mongoose.model('doctor',doctorSchema);

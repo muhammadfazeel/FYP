@@ -1,9 +1,11 @@
 const express = require('express');
 const router=express.Router();
 
+const User = require("../Models/user");
 const checkAuth=require('../middleware/check-auth');
 
-const User=require('../Models/user');
+
+
 const UserController=require('../controllers/user');
 
 //Route To post Data Into DataBase//
