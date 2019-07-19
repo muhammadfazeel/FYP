@@ -74,7 +74,8 @@ exports.User_signin=(req,res,next)=>{
     {
         email:user[0],
         userId:user[0]._id,
-        hospitalid:user[0].hid
+        hospitalid:user[0].hid,
+        name:user[0].name
     },
     "secret",
     {

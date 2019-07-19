@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const userSchema = mongoose.Schema({
+
+const patientSchema = mongoose.Schema({
     
     hid:{
         type: mongoose.Schema.Types.ObjectId,
@@ -19,6 +20,19 @@ const userSchema = mongoose.Schema({
         type:String,
         require:true
     },
+    gender:{
+        type:String,
+        require:true
+    },
+    blood:{
+        type:String
+    },age:{
+        type:Number
+    },
+    address:{
+        type:String,
+        require:true
+    },
     phone:{
         type: String,
         validate: {
@@ -33,4 +47,4 @@ const userSchema = mongoose.Schema({
         require:true
     }
 });
-module.exports=mongoose.model('User',userSchema);
+module.exports=mongoose.model('patient',patientSchema);

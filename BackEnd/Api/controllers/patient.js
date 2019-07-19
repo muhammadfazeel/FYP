@@ -3,9 +3,9 @@ const bcrpt=require('bcrypt');
 const jwt=require('jsonwebtoken');
 
 const Userdata = require("../Models/user");
-const Doctor = require('../Models/doctor');
+const Patient = require('../Models/patient');
 
-exports.signupDoctor=(req,res,next)=>{
+exports.getPatient=(req,res,next)=>{
     Userdata.find({
         email:req.body.email
     }).exec()
@@ -25,24 +25,28 @@ exports.signupDoctor=(req,res,next)=>{
                     }
                         else{
                             
-                            const doctor=new Doctor ({
+                            const patient=new Patient ({
                                 hid:req.userData.hospitalid,
                                 name:req.body.name,
                                 email:req.body.email,
                                 password:hash,
-                                department:req.body.department,
-                                address:req.body.address
+                                gender:req.body.gender,
+                                blood:req.body.gender,
+                                age:req.body.age,
+                                address:req.body.address,
+                                phone:req.body.phone,
+                                role:"patient"
                                 
                             });
                             
-                            doctor.save()
+                            patient.save()
                             .then(result=>
                                 {
                                 console.log(result);
                                 
                                 res.status(201).json({
                                 
-                                message:'Doctor Created'
+                                message:'Patient Created'
                                 
                             });
                                 const User= new Userdata
@@ -52,7 +56,7 @@ exports.signupDoctor=(req,res,next)=>{
                                     email:req.body.email,
                                     password:hash,
                                     phone:req.body.phone,
-                                    role:"doctor"
+                                    role:"patient"
                                 });
                                 User.save()
                                 .then()

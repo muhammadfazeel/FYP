@@ -9,6 +9,7 @@ const hospitalroutes=require("./Api/routes/create-hospital");
 const superadminroutes=require("./Api/routes/superadmin");
 const doctorroutes=require("./Api/routes/doctor");
 const appointmentRoutes = require('./Api/routes/appointments');
+const patientRoutes = require("./Api/routes/patient");
 
 mongoose.connect(
     "mongodb://localhost/HMS",{ useNewUrlParser: true, useCreateIndex: true }
@@ -29,4 +30,7 @@ app.use("/create-hospital",hospitalroutes);
 app.use("/superadmin",superadminroutes);
 app.use("/doctor",doctorroutes);
 app.use("/appointment",appointmentRoutes);
+app.use("/patient",patientRoutes);
+
+
 module.exports=app;
