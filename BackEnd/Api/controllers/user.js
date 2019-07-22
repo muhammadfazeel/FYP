@@ -5,7 +5,6 @@ const jwt=require('jsonwebtoken');
 const User = require("../Models/user");
 
 
-
 //*******To Signup into Data*************//
 exports.user_signup=(req,res,next)=>{
     User.find({
@@ -75,17 +74,39 @@ exports.User_signin=(req,res,next)=>{
         email:user[0],
         userId:user[0]._id,
         hospitalid:user[0].hid,
-        name:user[0].name
+        name:user[0].name,
+        role:user[0].role
     },
     "secret",
     {
         expiresIn:"1h"
     });
+    if(user[0].role==="superadmin"){
+     return res.render("superadmin");
+        // return res.status(200).json({
+        //     message:"Auth Successful You Are superadmin",
+        //     token:token})
+            
+    }
+    else if(user[0].role==="admin"){
+        return res.render("admin");
+        // return res.status(200).json({
+        //     message:"Auth Successful You Are admin",
+        //     token:token})
+    }
+    else if(user[0].role==="doctor"){
+        return res.status(200).json({
+            message:"Auth Successful You Are doctor",
+            token:token})
+    }
+    else if ( user[0].role==="patient"){
+        return res.status(200).json({
+            message:"Auth Successful You Are patient",
+            token:token})
+            
         
-    return res.status(200).json({
-        message:"Auth Successful",
-        token:token
-    });
+    }
+    
     }
     res.status(401).json({
         message:"Auth Failed"

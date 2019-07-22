@@ -3,6 +3,8 @@ const express = require('express');
 const app=express();
 const bodyparser=require('body-parser');
 const mongoose=require('mongoose');
+const path = require('path');
+//var express_layout = require('express-ejs-layouts');
 
 const userRoutes=require('./Api/routes/user');
 const hospitalroutes=require("./Api/routes/create-hospital");
@@ -21,9 +23,29 @@ mongoose.connect(
     });
 mongoose.Promise=global.Promise;
 
-app.use(bodyparser.urlencoded({extended:true}));
+//app.use(express_layout);
+app.set('views',path.join( __dirname +'/views'));
+app.set('view engine','ejs');
+app.use(express.static(__dirname + '/public'));
+
+
+
+app.use(bodyparser.urlencoded({extended:false}));
 app.use(bodyparser.json());
 app.use(helmet());
+
+app.get('/',(req,res)=>{
+    res.render('index');
+})
+app.get('/index',(req,res)=>{
+    res.render('index');
+})
+app.get('/login',(req,res)=>{
+    res.render('login');
+});
+app.get('/form',(req,res)=>{
+    res.render('form');
+});
 
 app.use("/user",userRoutes);
 app.use("/create-hospital",hospitalroutes);
