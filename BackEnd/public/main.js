@@ -1,18 +1,39 @@
-$(function () {
-var form=$('#create');
-var formData = $(form).serialize();
-$.ajax({
-    type: 'POST',
-    url: $(form).attr('action'),
-    data: formData, 
-    datatype: "json"
+//for signup
+$(document).ready(function(){
+    $('#create').submit(function(){
+        var mytitle = $('#titleid').val();
+        var myemail = $('#emailid').val();
+        var mypassword=$('#passwordid').val();
+        var myaddress = $('#addressid').val();
+        var myphone = $('#phoneid').val();
+        $.ajax({
+            global: false,
+            type: "post",
+            url:'/create-hospital/create',
+            dataType: "json",
+            data:{
+                title:mytitle,
+                email:myemail,
+                password:mypassword,
+                address:myaddress,
+                phone:myphone
+
+            },
+
+            success:function(res){
+                alert("Account created successfuly ");
+                if ( res.status === 'success'){
+                    window.location = res.redirect
+                } 
+                       },
+            error:function(err){
+                alert("error");
+            }
+        });
+        return false;
+    })
 })
-.done(function (data) {
-        self.responseData("User is Successfully " + data);
-}).error(function (err) {
-        self.responseData("Error " + err.status);
-});
-});
+
 
 
 //for login and jwt token
@@ -34,6 +55,7 @@ $(document).ready(function(){
 
             success:function(res){
                 alert("success");
+                sessionStorage.setItem('accessToken', res.accessToken);
             },error:function(err){
                 alert("error");
             }
@@ -41,3 +63,7 @@ $(document).ready(function(){
         return false;
     })
 })
+
+
+
+

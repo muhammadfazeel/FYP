@@ -83,7 +83,11 @@ exports.User_signin=(req,res,next)=>{
         expiresIn:"1h"
     });
     if(user[0].role==="superadmin"){
-      return  res.send(token);
+      return  res.json({
+        authsuccess: true,
+        description: 'Sending the Access Token',
+        accessToken: token
+    });
       }
     
     else if(user[0].role==="admin"){
@@ -92,9 +96,7 @@ exports.User_signin=(req,res,next)=>{
             description: 'Sending the Access Token u Are admin',
             accessToken:token
         })
-        // return res.status(200).json({
-        //     message:"Auth Successful You Are admin",
-        //     token:token})
+        
     }
     else if(user[0].role==="doctor"){
         return res.status(200).json({

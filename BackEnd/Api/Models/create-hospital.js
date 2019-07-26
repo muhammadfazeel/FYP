@@ -28,14 +28,6 @@ const hospitalSchema = mongoose.Schema({
         },
         message: '{VALUE} is not a valid phone number!' },
         require:true
-   },
-    patient_limit:{
-        type:Number,
-        require:true
-    },
-    dr_limit:{
-        type:Number,
-        require:true
-    }
+   }
 });
 module.exports=mongoose.model('hospital',hospitalSchema);
