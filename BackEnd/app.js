@@ -6,6 +6,7 @@ const mongoose=require('mongoose');
 const path = require('path');
 //var express_layout = require('express-ejs-layouts');
 
+
 const userRoutes=require('./Api/routes/user');
 const hospitalroutes=require("./Api/routes/create-hospital");
 const superadminroutes=require("./Api/routes/superadmin");

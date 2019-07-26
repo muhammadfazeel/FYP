@@ -1,6 +1,7 @@
 const mongoose=require('mongoose');
 const bcrpt=require('bcrypt');
 const jwt=require('jsonwebtoken');
+const httpMsgs = require('http-msgs');
 
 const User = require("../Models/user");
 
@@ -82,14 +83,15 @@ exports.User_signin=(req,res,next)=>{
         expiresIn:"1h"
     });
     if(user[0].role==="superadmin"){
-     return res.render("superadmin");
-        // return res.status(200).json({
-        //     message:"Auth Successful You Are superadmin",
-        //     token:token})
-            
-    }
+      return  res.send(token);
+      }
+    
     else if(user[0].role==="admin"){
-        return res.render("admin");
+        return  res.json({
+            authsuccess: true,
+            description: 'Sending the Access Token u Are admin',
+            accessToken:token
+        })
         // return res.status(200).json({
         //     message:"Auth Successful You Are admin",
         //     token:token})
@@ -106,8 +108,8 @@ exports.User_signin=(req,res,next)=>{
             
         
     }
+}
     
-    }
     res.status(401).json({
         message:"Auth Failed"
     });

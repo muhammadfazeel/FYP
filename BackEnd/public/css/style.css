@@ -229,12 +229,6 @@ a:hover {
     text-decoration: none;
 }
 
-ol,
-ul {}
-
-ol li,
-ul li {}
-
 .lead {
     font-size: 1.25rem;
     font-weight: 300;
@@ -333,13 +327,6 @@ textarea:focus::-webkit-input-placeholder {
     color: #5969ff !important;
 }
 
-button.btn {}
-
-button.btn-default {}
-
-button.btn-primary {}
-
-address {}
 
 .form-group {
     margin-bottom: 12px;
@@ -1038,11 +1025,6 @@ Borders
 Fontawesome size
 -------------------------*/
 
-.fa-xl {}
-
-.fa-lg {}
-
-.fa-md {}
 
 .fa-sm {
     font-size: 24px !important;
@@ -1203,9 +1185,7 @@ Legends
     font-size: 14px;
 }
 
-.legend-title {}
 
-.legend-text {}
 
 
 /* ==========================================================================
@@ -1222,14 +1202,13 @@ Legends
 Top Header
 -------------------------*/
 
-.dashboard-header {}
+
 
 .dashboard-header .navbar {
     padding: 0px;
     border-bottom: 1px solid #099c90;
     -webkit-box-shadow: 0px 0px 28px 0px rgba(109, 15, 223, 0.13);
     box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
-    -webkit-transition: all 0.3s ease;
     min-height: 60px;
 }
 
@@ -1249,7 +1228,7 @@ Top Header
 .navbar-brand:hover{
     color: #007bff;
 }
-.navbar-right-top {}
+
 
 .navbar-right-top .nav-item {
     border-right: 1px solid #0b0bec;
@@ -1422,9 +1401,7 @@ Top Header
 
 /* ------  Connection --------  */
 
-.connection {}
 
-.connection-dropdown {}
 
 .connection-list {
     width: 300px;
@@ -1461,7 +1438,7 @@ Top Header
 
 /* ----- User Nav Dropdown -----*/
 
-.nav-user {}
+
 
 .nav-user-dropdown {
     padding: 0px;
@@ -1469,7 +1446,7 @@ Top Header
     margin: 0px;
 }
 
-.nav-user-name {}
+
 
 .nav-user-info {
     background-color: #5969ff;
@@ -1486,7 +1463,7 @@ Top Header
     left: 0px;
 }
 
-.nav-user-dropdown {}
+
 
 .nav-user-dropdown .dropdown-item {
     display: block;
@@ -1564,7 +1541,7 @@ Top Header
     padding: 0px;
 }
 
-.navigation-horizontal .navbar-nav .nav-item {}
+
 
 .navigation-horizontal .navbar-nav .nav-link {
    font-size: 13px;
@@ -1649,7 +1626,7 @@ Left Navigation Sidebar
     background-color: #fff;
     -webkit-box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
     box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
-    -webkit-transition: all 0.3s ease;
+    
 }
 
 .nav-left-sidebar .nav-link[data-toggle="collapse"] {
@@ -1690,7 +1667,7 @@ Left Navigation Sidebar
     padding: 14px;
 }
 
-.nav-left-sidebar .navbar-nav .nav-item {}
+
 
 .nav-left-sidebar .navbar-nav .nav-link {
     font-size: 14px;
@@ -1776,7 +1753,7 @@ Leftsidebar - Primary
     color: #fcfcfc;
 }
 
-.sidebar-primary.nav-left-sidebar .navbar-nav .nav-item {}
+
 
 .sidebar-primary.nav-left-sidebar .navbar-nav .nav-link {
     color: #8991d4;
@@ -1811,7 +1788,6 @@ Leftsidebar - dark
     background-color: #1dd0d6;
     -webkit-box-shadow: 0px 0px 28px 0px rgba(238, 224, 224, 0.849);
     box-shadow: 0px 0px 28px 0px rgb(17, 156, 138);
-    -webkit-transition: all 0.3s ease;
 }
 
 .sidebar-dark .nav-divider {
@@ -1870,9 +1846,7 @@ Sidebar Page Navigations
     top: 5rem;
 }
 
-.sidebar-nav-fixed ul {}
 
-.sidebar-nav-fixed ul li {}
 
 .sidebar-nav-fixed ul li a {
     font-size: 14px;
@@ -1922,7 +1896,6 @@ Sidebar Page Navigations
     background: #efeff6;
 }
 
-.page-section {}
 
 .dropdown-item.active,
 .dropdown-item:active {
@@ -2004,11 +1977,7 @@ Pageheader
     margin-bottom: 30px;
 }
 
-.page-breadcrumb {}
 
-.page-breadcrumb .breadcrumb {}
-
-.page-breadcrumb .breadcrumb-item {}
 
 .page-breadcrumb .breadcrumb-link {
     color: #a6a6b7;
@@ -2109,7 +2078,7 @@ Pageheader
   2. Dashboard Index-Finance
    ========================================================================== */
 
-.dashboard-finance {}
+
 
 .dashboard-finance .ct-label {
     display: none;
@@ -2120,9 +2089,6 @@ Pageheader
   3. Dashboard Influencer
    ========================================================================== */
 
-.dashboard-influence {}
-
-.influencer-profile-data {}
 
 .influencer-profile-data .user-avatar {
     margin-right: 40px;
@@ -2138,9 +2104,7 @@ Pageheader
     padding-right: 20px;
 }
 
-.user-avatar-address {}
 
-.influencer-profile-data .user-avatar-address {}
 
 .influencer-profile-data .user-avatar-email {
     text-decoration: underline;
@@ -2167,8 +2131,6 @@ Pageheader
     background-color: #ededfa;
 }
 
-.campaign-table {}
-
 .campaign-table .dropdown-toggle::after {
     display: none;
 }
@@ -2189,7 +2151,7 @@ Pageheader
   3. Influencer Finder
    ========================================================================== */
 
-.influence-finder {}
+
 
 .influence-finder .user-social-media {
     padding: 16px 68px;
@@ -2227,7 +2189,6 @@ Pageheader
  4. Influencer Profile
 ========================================================================== */
 
-.influence-profile {}
 
 .rating-star {
     font-size: 12px;
@@ -2259,9 +2220,7 @@ Pageheader
     border-top-left-radius: 0px;
 }
 
-.review-block {}
 
-.review-text {}
 
 
 /* ==========================================================================
@@ -2285,9 +2244,6 @@ Pageheader
     display: inline-block;
 }
 
-.social-sales-content {}
-
-.social-sales-name {}
 
 .social-sales-count {
     float: right;

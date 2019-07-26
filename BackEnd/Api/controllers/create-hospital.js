@@ -16,9 +16,8 @@ exports.createHospital=(req,res,next)=>{
             return res.status(409).json({
                 message:'Email Already Exists'
             });
-        }
+      }
             else{
-                var hospitalid;
                 bcrpt.hash(req.body.password,10,(err,hash)=>{
                     if(err){
                         
@@ -42,10 +41,6 @@ exports.createHospital=(req,res,next)=>{
                             hospital.save()
                             
                             .then(result=>{
-                                console.log(result);
-                                res.status(201).json({
-                                    message:'Hospital Created'
-                                });
                                 const User= new Userdata({
                                     hid:result._id,
                                     name:req.body.title,
@@ -59,6 +54,9 @@ exports.createHospital=(req,res,next)=>{
                                 .catch(err=>{
                                     console.log(err);
                                 })
+                                //console.log(result);
+                                res.render('index');
+                                
                             })
                             .catch(err=>{
                                 console.log(err);
@@ -72,6 +70,6 @@ exports.createHospital=(req,res,next)=>{
         
     })
     
-    
+ 
 
 };
