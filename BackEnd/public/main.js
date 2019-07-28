@@ -73,10 +73,11 @@ $(document).ready(function(){
 function getMe(e) {
     e.preventDefault();
     var Token = JSON.parse(localStorage.getItem('data'));
-    console.log(`Authorization=Bearer ${Token}`)
+    //console.log(`Authorization=Bearer ${Token}`)
     $.ajax({
          url:'/superadmin/superadmin', 
          type: 'GET',
+         
         headers: {
             'Authorization': 'Bearer ' + Token
         },
