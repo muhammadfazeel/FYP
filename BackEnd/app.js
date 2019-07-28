@@ -47,6 +47,9 @@ app.get('/login',(req,res)=>{
 app.get('/form',(req,res)=>{
     res.render('form');
 });
+app.get('/superadmin',(req,res)=>{
+    res.render('superadmin');
+})
 
 app.use("/user",userRoutes);
 app.use("/create-hospital",hospitalroutes);

@@ -47,7 +47,7 @@ $(document).ready(function(){
             global: false,
             type: "post",
             url:'/user/login',
-            dataType: "json",
+            
             data:{
                 email:myemail,
                 password:mypassword
@@ -55,15 +55,57 @@ $(document).ready(function(){
 
             success:function(res){
                 alert("success");
-                sessionStorage.setItem('accessToken', res.accessToken);
+                localStorage.setItem("data", res.accessToken);
+                var Token = localStorage.getItem('data');
+                document.getElementById("#btn").addEventListener("click", getMe);
             },error:function(err){
                 alert("error");
             }
         });
         return false;
     })
+    
 })
 
 
 
+
+function getMe(e) {
+    e.preventDefault();
+    var Token = JSON.parse(localStorage.getItem('data'));
+    console.log(`Authorization=Bearer ${Token}`)
+    $.ajax({
+         url:'/superadmin/superadmin', 
+         type: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + Token
+        },
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+             window.location.href = '/superadmin/superadmin';
+        })
+        .catch(err => { console.log(err) })
+} 
+
+
+
+
+
+
+
+// $.ajax({
+//     url: "/superadmin/superadmin",
+//     type: 'GET',
+//     // Fetch the stored token from localStorage and set in the header
+//     headers: { "Authorization": 'Bearer ' + Token }
+//   });
+
+    
+
+
+
+
+ 
 
